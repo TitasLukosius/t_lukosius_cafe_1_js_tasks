@@ -81,15 +81,15 @@ console.groupCollapsed('3. - https://edabit.com/challenge/kGLhgwGaLJsCMS7wS');
     }
   }
 
-  const emp1 = new Employee("joHn", "Smith");
+  const emp1 = new Employee("joHn", "smits");
   console.log(emp1.fullname)
 
-  const emp2 = new Employee("Mary", "Sue");
+  const emp2 = new Employee("gary", "Suzxee");
   emp2.lastname = "Changed";
   console.log(emp2);
   console.log(emp2.email);
 
-  const emp3 = new Employee("Antony", "Walker");
+  const emp3 = new Employee("tony", "stark");
   console.log(emp3.firstname);
 }
 console.groupEnd();
@@ -113,9 +113,9 @@ console.groupCollapsed('4. - https://edabit.com/challenge/iwdZiFucR5wkQsFHu');
     }
   }
 
-  const p1 = new Person("Samuel", 24);
-  const p2 = new Person("Joel", 36);
-  const p3 = new Person("Lily", 24);
+  const p1 = new Person("Titas", 24);
+  const p2 = new Person("Arnas", 36);
+  const p3 = new Person("Giedrius", 24);
 
   console.log(p1.compareAge(p2));
   console.log(p2.compareAge(p1));
@@ -126,28 +126,26 @@ console.groupEnd();
 console.groupCollapsed('5. - https://edabit.com/challenge/Hgb38yhWGwJCMHbRQ');
 {
   class Circle {
-    constructor (radius) {
+    constructor(radius) {
       this.radius = radius;
     }
-  ​
+
     getArea() {
-      return Math.PI * this.radius**2;
+      return Math.PI * this.radius ** 2;
     }
-  ​
+
     getPerimeter() {
       return 2 * Math.PI * this.radius;
     }
   }
+
+  let circleK = new Circle(4.44);
+  console.log(circleK.getArea());
+  console.log(circleK.getPerimeter());
 }
 console.groupEnd();
 
 console.groupCollapsed('6. - https://edabit.com/challenge/qNMtrtizgssAQqP2b');
-{
-  // ... code
-}
-console.groupEnd();
-
-console.groupCollapsed('7. - https://edabit.com/challenge/HKmJFmZZCX53ff4ke');
 {
   class Name {
     constructor(fname, lname) {
@@ -162,6 +160,15 @@ console.groupCollapsed('7. - https://edabit.com/challenge/HKmJFmZZCX53ff4ke');
       return this.fname.charAt(0) + '.' + this.lname.charAt(0)
     }
   }
+  const name = new Name('Titas', 'Lukosius');
+  console.log(name.fullname);
+  console.log(name.initials);
+}
+console.groupEnd();
+
+console.groupCollapsed('7. - https://edabit.com/challenge/HKmJFmZZCX53ff4ke');
+{
+  //asdasdasdasdasdasd
 }
 console.groupEnd();
 
@@ -217,7 +224,9 @@ console.groupCollapsed('10. - https://edabit.com/challenge/s5Sz2ovKsvtGxNGgn');
   const PP = new Book('Pride and Prejudice', 'Jane Austen');
   const H = new Book('Hamlet', 'William Shakespeare');
   const WP = new Book('War and Peace', 'Leo Tolstoy');
-
+  console.log(PP.getTitle(), PP.getAuthor());
+  console.log(H.getTitle(), H.getAuthor());
+  console.log(WP.getTitle(), WP.getAuthor());
 }
 console.groupEnd();
 
