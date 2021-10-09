@@ -129,7 +129,22 @@ console.groupEnd();
 
 console.groupCollapsed('10. Sukurkite objektą, kuriame būtų apskaičiuotas vairuojančių žmonių kiekis pagal lytį');
 {
-  // ...sprendimas ir spausdinimas
+  let drivingMales = 0;
+  let drivingFemales = 0;
+
+  people.forEach(person => {
+    if(person.sex === 'female' && person.hasCar) {
+      drivingFemales++;
+    } else if(person.sex === 'male' && person.hasCar) {
+      drivingMales++
+    }
+  })
+  const drivers = 
+  {
+    drivingMales: drivingMales,
+    drivingFemales: drivingFemales
+  }
+  console.log(drivers);
 }
 console.groupEnd();
 
