@@ -56,55 +56,74 @@ const people = [
 ];
 console.groupCollapsed('1. Atspausdinkite visus žmones eilutėmis');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach((person) => console.log(`${person.name}  ${person.surname}`))
 }
 console.groupEnd();
 
-console.groupCollapsed('2. Atpausdinkite visus žmonių varus ir pavardes, atskirtus brūkšneliu');
+console.groupCollapsed('2. Atpausdinkite visus žmonių vardus ir pavardes, atskirtus brūkšneliu');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach((person) => console.log(`${person.name} - ${person.surname}`))
 }
 console.groupEnd();
 
-console.groupCollapsed('3. Atspausdinkite visų žmonių vardus ir pavardes bei santuokos statusą');
+console.groupCollapsed('3. Atspausdinkite visų žmonių vardus ir pavardes bei santuokos statusus');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach((person) => console.table(`${person.name} ${person.surname} santuokos statusas: ${person.married}`))
 }
 console.groupEnd();
 
-console.groupCollapsed('4. Sukurtite masyvą su lytimis ir uždirbamu pinigų kiekiu, pagal pradinį žmonių masyvą');
+console.groupCollapsed('4. Sukurkite masyvą su lytimis ir uždirbamu pinigų kiekiu, pagal pradinį žmonių masyvą');
 {
-  // ...sprendimas ir spausdinimas
+  const sexIncome = people.map((person) => ({ sex: person.sex, income: person.income }))
+  console.log(sexIncome);
 }
 console.groupEnd();
 
 console.groupCollapsed('5. Sukurtite masyvą su vardais, pavardėmis ir lytimi, pagal pradinį žmonių masyvą');
 {
-  // ...sprendimas ir spausdinimas
+  const nameSurnameSex = people.map((a) => ({ name: a.name, surname: a.surname, sex: a.sex }))
+  console.log(nameSurnameSex);
 }
 console.groupEnd();
 
-console.groupCollapsed('6. Atspausdinkite visus vyrus');
+console.groupCollapsed('6. Atspausdinkite visų vyrų vardus');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach((person) => {
+    if (person.sex === 'male') {
+      console.log(person.name);
+    }
+  })
 }
 console.groupEnd();
 
-console.groupCollapsed('7. Atspausdinkite visas moteris');
+console.groupCollapsed('7. Atspausdinkite visų moterų atlyginimus');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach((person) => {
+    if (person.sex === 'female') {
+      console.log(person.income);
+    }
+  })
 }
 console.groupEnd();
 
 console.groupCollapsed('8. Atspausdinkite žmonių vardus ir pavardes, kurie turi mašinas');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach((person) => {
+    if (person.hasCar) {
+      console.log(person.name + ' ' + person.surname);
+    }
+  })
 }
 console.groupEnd();
 
 console.groupCollapsed('9. Atspausdinkite žmones kurie yra susituokę');
 {
-  // ...sprendimas ir spausdinimas
+
+  people.forEach((person) => {
+    if (person.married) {
+      console.log(person);
+    }
+  })
 }
 console.groupEnd();
 
@@ -116,19 +135,39 @@ console.groupEnd();
 
 console.groupCollapsed('11. Performuokite žmonių masyvą, jog kiekvieno žmogaus savybė "income", taptų "salary"');
 {
-  // ...sprendimas ir spausdinimas
+  const result = people.map(p => {
+    const person = { ...p };
+    person.salary = person.income
+    delete person.income
+    return person;
+  })
+  console.table(result)
 }
 console.groupEnd();
 
 console.groupCollapsed('12. Suformuokite žmonių masyvą, kuriame nebūtų lyties, vardo ir pavardės');
 {
-  // ...sprendimas ir spausdinimas
+  const result = people.map(p => {
+    const person = { ...p };
+    delete person.name;
+    delete person.surname;
+    delete person.sex;
+    return person
+  })
+  console.table(result)
 }
 console.groupEnd();
 
 console.groupCollapsed('13. Suformuokite žmonių masyvą, kuriame "name" ir "surname" savybės, būtų pakeistos "fullname" savybe');
 {
-  // ...sprendimas ir spausdinimas
+  const result = people.map(p => {
+    const person = { ...p };
+    person.fullname = person.name + " " + person.surname
+    delete person.name
+    delete person.surname
+    return person
+  })
+  console.table(result)
 }
 console.groupEnd();
 
