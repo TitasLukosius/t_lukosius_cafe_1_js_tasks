@@ -517,12 +517,18 @@ console.log();
 console.group("25. Sukurkite funkciją, kuri pirmu parametru priimtų žodį, o antruoju - masyvą su raidėmis.");
 {
   function filterLetters(str, lettersToRemove) {
-    // code ...
+    for (let i = 0; i < lettersToRemove.length; i++) {
+      let letter = lettersToRemove[i]
+      while (str.indexOf(letter) > -1) {
+        str = str.slice(0, str.indexOf(letter)) + str.slice(str.indexOf(letter) + 1)
+      }
+    }
+    return str
   }
-  // console.log('---');
-  // const str = filterLetters('Brangakmienio paveikslas', ['a', 'i']);
-  // console.log(str);
-  // console.log('---');
+  console.log('---');
+  const str = filterLetters('Brangakmienio paveikslas', ['a', 'i']);
+  console.log(str);
+  console.log('---');
 }
 console.groupEnd();
 console.log();
@@ -530,15 +536,20 @@ console.log();
 console.group("26. Sukurkite funkciją, kuri pirmu parametrų priimą sakinį, kiekvieną tarpą pakeičia brūkšneliu ir grąžina pakeistą sakinį");
 {
   function replaceSpaceWithDash(str) {
-    // code ...
+    let temp = str
+    do {
+      str = temp;
+      temp = str.replace(' ', '-')
+    } while (str !== temp);
+    return str;
   }
-  // console.log('---');
-  // console.log({
-  //   'viens du trys': replaceSpaceWithDash('viens du trys'),
-  //   'as tave myliu': replaceSpaceWithDash('as tave myliu'),
-  //   'Bairis seniuk': replaceSpaceWithDash('Bairis seniuk'),
-  // })
-  // console.log('---');
+  console.log('---');
+  console.log({
+    'viens du trys': replaceSpaceWithDash('viens du trys'),
+    'as tave myliu': replaceSpaceWithDash('as tave myliu'),
+    'Bairis seniuk': replaceSpaceWithDash('Bairis seniuk'),
+  })
+  console.log('---');
 }
 console.groupEnd();
 console.log();
@@ -546,15 +557,19 @@ console.log();
 console.group("27. Sukurkite funkciją, kuri pirmu parametru priima sakinį, ir kiekvieno žodžio pirmają raidę padaro didžiąja");
 {
   function capitalize(str) {
-    // code ...
+    const words = str.split(' ');
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+    }
+    return words.join(' ');
   }
-  // console.log('---');
-  // console.log({
-  //   'viens du trys': capitalize('viens du trys'),
-  //   'as tave myliu': capitalize('as tave myliu'),
-  //   'Bairis seniuk': capitalize('Bairis seniuk'),
-  // })
-  // console.log('---');
+  console.log('---');
+  console.log({
+    'viens du trys': capitalize('viens du trys'),
+    'as tave myliu': capitalize('as tave myliu'),
+    'Bairis seniuk': capitalize('Bairis seniuk'),
+  })
+  console.log('---');
 }
 console.groupEnd();
 console.log();
@@ -562,13 +577,17 @@ console.log();
 console.group("28. Sukurkite funkciją, kuri atspausdina žodį atvirkščiai 'abc' -> 'cba'");
 {
   function strReverse(str) {
-    // code ...
+    let result = '';
+    for (let i = str.length -1 ; i >= 0; i--) {
+      result = result + str[i]
+    }
+    console.log(str, ' ', result);
   }
-  // console.log('---');
-  // strReverse('viens du trys');
-  // strReverse('as tave myliu');
-  // strReverse('Bairis seniuk');
-  // console.log('---');
+  console.log('---');
+  strReverse('viens du trys'),
+    strReverse('as tave myliu'),
+    strReverse('Bairis seniuk'),
+    console.log('---');
 }
 console.groupEnd();
 console.log();
