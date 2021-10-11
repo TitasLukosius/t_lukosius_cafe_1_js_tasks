@@ -200,10 +200,35 @@ const students = [
 ];
 
 console.groupCollapsed('1. Iš students masyvo atrinkti ir atspausdinti visų studentų vidurkius');
-{
-  // ... sprendimas ir spausdinimas
-}
-console.groupEnd();
+  {
+    function mapStudentsWithAvg(students) {
+      const studentsWithAverages = [];
+      for (let i = 0; i < students.length; i++) {
+        const student = students[i];
+        let allCredits = 0;
+        let moduleAveragesWithWeights = 0;
+        for (let x = 0; x < student.modules.length; x++) {
+          const module = student.modules[x];
+          allCredits += module.credits;
+          let sum = 0;
+          for (let k = 0; k < module.marks.length; k++) {
+            const mark = module.marks[k];
+            sum += mark;
+          }
+          const avg = module.credits * sum / module.marks.length;
+          moduleAveragesWithWeights += avg;
+        }
+        studentsWithAverages.push({
+          ...student,
+          avg: moduleAveragesWithWeights / allCredits
+        })
+      }
+      return studentsWithAverages;
+    }
+
+    console.table(mapStudentsWithAvg(students))
+  }
+  console.groupEnd();
 
 console.groupCollapsed('2. Atspausdinti visus Informatikos fakulteto studentus');
 {
